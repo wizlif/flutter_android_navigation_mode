@@ -9,19 +9,23 @@ class AndroidNavigationMode {
       const MethodChannel('android_navigation_mode');
 
   static Future<DeviceNavigationMode> get getNavigationMode async {
-    if(Platform.isIOS) {
-      return DeviceNavigationMode.none;
-    }
-    final int mode = await _channel.invokeMethod('get_navigation_mode');
-    switch(mode) {
-      case 0:
-        return DeviceNavigationMode.threeButton;
-      case 1:
-        return DeviceNavigationMode.twoButton;
-      case 2:
-        return DeviceNavigationMode.fullScreenGesture;
-      default:
+    try {
+      if(Platform.isIOS) {
         return DeviceNavigationMode.none;
+      }
+      final int mode = await _channel.invokeMethod('get_navigation_mode');
+      switch(mode) {
+        case 0:
+          return DeviceNavigationMode.threeButton;
+        case 1:
+          return DeviceNavigationMode.twoButton;
+        case 2:
+          return DeviceNavigationMode.fullScreenGesture;
+        default:
+          return DeviceNavigationMode.none;
+      }
+    } catch (error) {
+      return DeviceNavigationMode.none;
     }
   }
 }

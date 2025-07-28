@@ -1,6 +1,6 @@
 name: flutter_android_navigation_mode
 description: Obtain Android System Navigation UI mode.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/rodgh522/flutter_android_navigation_mode
 
 environment:
