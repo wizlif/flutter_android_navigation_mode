@@ -1,8 +1,15 @@
-# android_navigation_mode
+# flutter_android_navigation_mode_new
 
-A Flutter Plugin to get android navigation mode, including: twoButton, threeButton, fullScreenGesture
+A new Flutter plugin project.
 
-```
-      _navigationMode = await AndroidNavigationMode.getNavigationMode;
+## Getting Started
 
-```
+This project is a starting point for a Flutter
+[plug-in package](https://flutter.dev/to/develop-plugins),
+a specialized package that includes platform-specific implementation code for
+Android and/or iOS.
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+

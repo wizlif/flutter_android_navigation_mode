@@ -1,45 +1,54 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
-import 'package:flutter_android_navigation_mode/flutter_android_navigation_mode.dart';
+import 'package:flutter_android_navigation_mode/flutter_android_navigation_mode_new.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  DeviceNavigationMode navigationMode = DeviceNavigationMode.none;
+  DeviceNavigationMode _navigationMode = DeviceNavigationMode.none;
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    initNavigationMode();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    DeviceNavigationMode _navigationMode;
-    // Platform messages may fail, so we use a try/catch PlatformException.
+  Future<void> initNavigationMode() async {
+    DeviceNavigationMode navigationMode;
     try {
-      _navigationMode = await AndroidNavigationMode.getNavigationMode;
-    } on PlatformException {
-      _navigationMode = DeviceNavigationMode.none;
+      navigationMode = await AndroidNavigationMode.getNavigationMode;
+    } catch (e) {
+      navigationMode = DeviceNavigationMode.none;
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
 
     setState(() {
-      navigationMode = _navigationMode;
+      _navigationMode = navigationMode;
     });
+  }
+
+  String _getNavigationModeText(DeviceNavigationMode mode) {
+    switch (mode) {
+      case DeviceNavigationMode.threeButton:
+        return 'Three-button navigation';
+      case DeviceNavigationMode.twoButton:
+        return 'Two-button navigation';
+      case DeviceNavigationMode.fullScreenGesture:
+        return 'Full screen gesture navigation';
+      case DeviceNavigationMode.none:
+        return 'Not applicable (iOS or unknown)';
+    }
   }
 
   @override
@@ -47,10 +56,28 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Navigation Mode Example'),
         ),
         body: Center(
-          child: Text('navigationMode: $navigationMode\n'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Navigation Mode:',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                _getNavigationModeText(_navigationMode),
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              const SizedBox(height: 32),
+              ElevatedButton(
+                onPressed: initNavigationMode,
+                child: const Text('Refresh'),
+              ),
+            ],
+          ),
         ),
       ),
     );

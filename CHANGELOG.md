@@ -1,3 +1,3 @@
 ## 0.0.1
 
-* extends android_navigation_mode
+* TODO: Describe initial release.
