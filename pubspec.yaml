@@ -21,7 +21,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.flutter_android_navigation_mode_new
-        pluginClass: FlutterAndroidNavigationModeNewPlugin
+        package: com.flutter_android_navigation_mode
+        pluginClass: FlutterAndroidNavigationModePlugin
       ios:
-        pluginClass: FlutterAndroidNavigationModeNewPlugin
+        pluginClass: FlutterAndroidNavigationModePlugin

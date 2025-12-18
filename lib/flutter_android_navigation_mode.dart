@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'flutter_android_navigation_mode_new_platform_interface.dart';
+import 'flutter_android_navigation_mode_platform_interface.dart';
 
 /// Enum representing the device navigation mode.
 enum DeviceNavigationMode {
@@ -34,7 +34,7 @@ class AndroidNavigationMode {
         return DeviceNavigationMode.none;
       }
 
-      final int mode = await FlutterAndroidNavigationModeNewPlatform.instance.getNavigationMode();
+      final int mode = await FlutterAndroidNavigationModePlatform.instance.getNavigationMode();
 
       switch (mode) {
         case 0:

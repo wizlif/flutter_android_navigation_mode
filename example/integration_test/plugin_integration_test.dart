@@ -9,7 +9,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'package:flutter_android_navigation_mode/flutter_android_navigation_mode_new.dart';
+import 'package:flutter_android_navigation_mode/flutter_android_navigation_mode.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();

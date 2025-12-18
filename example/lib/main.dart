@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter_android_navigation_mode/flutter_android_navigation_mode_new.dart';
+import 'package:flutter_android_navigation_mode/flutter_android_navigation_mode.dart';
 
 void main() {
   runApp(const MyApp());

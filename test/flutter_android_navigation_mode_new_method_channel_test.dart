@@ -1,12 +1,12 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_android_navigation_mode/flutter_android_navigation_mode_new_method_channel.dart';
+import 'package:flutter_android_navigation_mode/flutter_android_navigation_mode_method_channel.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelFlutterAndroidNavigationModeNew platform = MethodChannelFlutterAndroidNavigationModeNew();
-  const MethodChannel channel = MethodChannel('flutter_android_navigation_mode_new');
+  MethodChannelFlutterAndroidNavigationMode platform = MethodChannelFlutterAndroidNavigationMode();
+  const MethodChannel channel = MethodChannel('flutter_android_navigation_mode');
 
   setUp(() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(

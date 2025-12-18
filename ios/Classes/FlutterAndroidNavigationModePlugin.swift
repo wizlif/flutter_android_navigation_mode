@@ -1,10 +1,10 @@
 import Flutter
 import UIKit
 
-public class FlutterAndroidNavigationModeNewPlugin: NSObject, FlutterPlugin {
+public class FlutterAndroidNavigationModePlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "flutter_android_navigation_mode_new", binaryMessenger: registrar.messenger())
-    let instance = FlutterAndroidNavigationModeNewPlugin()
+    let channel = FlutterMethodChannel(name: "flutter_android_navigation_mode", binaryMessenger: registrar.messenger())
+    let instance = FlutterAndroidNavigationModePlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 

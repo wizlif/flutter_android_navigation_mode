@@ -1,4 +1,4 @@
-package com.example.flutter_android_navigation_mode_new
+package com.flutter_android_navigation_mode
 
 import android.view.ViewConfiguration
 import android.content.Context
@@ -10,8 +10,8 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
-/** FlutterAndroidNavigationModeNewPlugin */
-class FlutterAndroidNavigationModeNewPlugin :
+/** FlutterAndroidNavigationModePlugin */
+class FlutterAndroidNavigationModePlugin :
     FlutterPlugin,
     MethodCallHandler {
     // The MethodChannel that will the communication between Flutter and native Android
@@ -22,7 +22,7 @@ class FlutterAndroidNavigationModeNewPlugin :
     private lateinit var context: Context
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_android_navigation_mode_new")
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_android_navigation_mode")
         context = flutterPluginBinding.applicationContext
         channel.setMethodCallHandler(this)
     }
